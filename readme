@@ -1,0 +1,35 @@
+to run this project,you need install OpenVINO toolkit.
+
+how to run this model ?
+
+[1]install OpenVINO toolkit 
+[2]put src folder in /opt/intel/openvino/inference_engine/samples
+[3]run command :./build_sample.sh
+if compiled OK,you'll find a file named myprojectback in
+~/inference_engine_samples_build/intel64/Release
+[4]you can cd into this file run command :
+./myprojectback -i cam0 -m ~/YOLO/bdd100k/tiny_yolov3.xml -d CPU 
+to see the result of this project.
+if you wan't see the result of videl ,what't you should to do is change cam0 to your  video path.
+
+
+
+how to run this model ?
+[5]if you wan't use FPGA to accelerate the project ,you need use command :
+export CL_CONTEXT_COMPILER_MODE_INTELFPGA=3
+
+aocl program acl0 /opt/intel/openvino/bitstreams/a10_devkit_bitstreams/2019R1_A10DK_FP16_TinyYolo.aocx
+
+
+cd ~/inference_engine_samples_build/intel64/Release/
+
+
+./myprojectback -i cam0 -m ~/YOLO/bdd100k/tiny_yolov3.xml -d HETERO:FPGA,CPU
+
+you can see the accerate of FPGA(Arria10).
+
+
+[6]we also offer the python project of tiny-yolo.you can see it in python folder.
+
+
+
